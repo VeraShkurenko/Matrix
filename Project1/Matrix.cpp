@@ -74,3 +74,57 @@ Matrix::~Matrix()
 	cout << "Destructor\n";
 }
 
+Matrix Matrix::Add(const Matrix& other) const
+{
+	Matrix result(str, st);
+	for (int i = 0; i < str; i++)
+	{
+		for (int j = 0; j < st; j++)
+		{
+			result.ptr[i][j] = ptr[i][j] + other.ptr[i][j];
+		}
+	}
+	return result;
+}
+
+Matrix Matrix::Multiply(const Matrix& other) const
+{
+	Matrix result(str, other.st);
+	for (int i = 0; i < str; i++)
+	{
+		for (int j = 0; j < other.st; j++)
+		{
+			result.ptr[i][j] = 0;
+			for (int k = 0; k < st; k++)
+			{
+				result.ptr[i][j] += ptr[i][k] * other.ptr[k][j];
+			}
+		}
+	}
+	return result;
+}
+
+Matrix Matrix::Transpose() const
+{
+	Matrix result(st, str);
+	for (int i = 0; i < str; i++)
+	{
+		for (int j = 0; j < st; j++)
+		{
+			result.ptr[j][i] = ptr[i][j];
+		}
+	}
+	return result;
+}
+
+int Matrix::GetElement(int row, int col) const
+{
+	return ptr[row][col];
+}
+
+void Matrix::SetElement(int row, int col, int value)
+{
+	ptr[row][col] = value;
+}
+
+

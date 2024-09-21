@@ -13,6 +13,12 @@ public:
 	void Input();
 	void Print()const;
 	~Matrix();
+
+	Matrix Add(const Matrix& other) const; 
+	Matrix Multiply(const Matrix& other) const;
+	Matrix Transpose() const; 
+	int GetElement(int row, int col) const; 
+	void SetElement(int row, int col, int value); 
 	
 };
 
