@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Matrix.h"
+#include "Point.h"
 #include <ctime>
 using namespace std;
 //Создать класс для работы с матрицами.
@@ -8,9 +9,17 @@ using namespace std;
 
 int main()
 {
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
 
-    Matrix<int> obj1(3, 3);
+    Matrix<Point> pointMatrix(2, 2);
+    Point p1(1, 2), p2(3, 4);
+    pointMatrix.Input(); 
+
+
+
+    return 0;
+
+ /*   Matrix<int> obj1(3, 3);
     obj1.Input();
     cout << "First matrix (int):\n";
     obj1.Print();
@@ -35,8 +44,7 @@ int main()
     obj1.SetElement(0, 0, 999);
     cout << "Updated first matrix after setting element at (0, 0) to 999 (int):\n";
     obj1.Print();
-    cout << "Element at (0, 0): " << obj1.GetElement(0, 0) << endl;
-
+    cout << "Element at (0, 0): " << obj1.GetElement(0, 0) << endl;*/
     return 0;
 
 }

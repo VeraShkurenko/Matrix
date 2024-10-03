@@ -23,7 +23,10 @@ public:
 	Matrix Transpose() const; 
 	T GetElement(int row, int col) const; 
 	void SetElement(int row, int col, T value); 
-	
+
+    T GetMax() const;
+    T GetMin() const;
+
 };
 
 template <typename T>
@@ -153,4 +156,34 @@ template <typename T>
 void Matrix<T>::SetElement(int row, int col, T value) 
 {
     ptr[row][col] = value;
+}
+
+template <typename T>
+T Matrix<T>::GetMax() const
+{
+    T max = ptr[0][0];
+    for (int i = 0; i < str; i++)
+    {
+        for (int j = 0; j < st; j++)
+        {
+            if (ptr[i][j] > max)
+                max = ptr[i][j];
+        }
+    }
+    return max;
+}
+
+template <typename T>
+T Matrix<T>::GetMin() const
+{
+    T min = ptr[0][0];
+    for (int i = 0; i < str; i++)
+    {
+        for (int j = 0; j < st; j++)
+        {
+            if (ptr[i][j] < min)
+                min = ptr[i][j];
+        }
+    }
+    return min;
 }
