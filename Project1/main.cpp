@@ -11,10 +11,21 @@ int main()
 {
     srand(static_cast<unsigned int>(time(0)));
 
-    Matrix<Point> pointMatrix(2, 2);
-    Point p1(1, 2), p2(3, 4);
-    pointMatrix.Input(); 
+    Matrix<Point> matrix(2, 2);
+    matrix.Input();
+    matrix.Print();
 
+    cout << endl;
+
+    Matrix<Point> anotherMatrix(2, 2);
+    anotherMatrix.Input();
+    anotherMatrix.Print();
+
+    cout << endl;
+
+
+    Matrix<Point> result = matrix.Add(anotherMatrix);
+    result.Print();
 
 
     return 0;
@@ -45,6 +56,5 @@ int main()
     cout << "Updated first matrix after setting element at (0, 0) to 999 (int):\n";
     obj1.Print();
     cout << "Element at (0, 0): " << obj1.GetElement(0, 0) << endl;*/
-    return 0;
 
 }
